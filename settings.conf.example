@@ -1,0 +1,12 @@
+[time]
+src_timezone = GMT
+dst_timezone = Europe/Paris
+
+[ghostfolio]
+account_id = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+currency = USD
+data_source = YAHOO
+symbol = BTCUSD
+server_url = https://hostname.domain
+auth_bearer = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ssl_self_cert = /etc/ssl/certs/ca-certificates.crt
