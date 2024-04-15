@@ -46,12 +46,3 @@ with open(transactions_file, "r", encoding="utf-8") as csv_file:
         }
         data['activities'].append(line)
 print(json.dumps(data, indent=2))
-x = requests.post(cfg['ghostfolio']['server_url'] + '/api/v1/import',
-     json = data,
-     headers = {
-         "Authorization" : "Bearer " + cfg['ghostfolio']['auth_bearer'],
-         "Content-Type" : "application/json"
-         },
-     verify=cfg['ghostfolio']['ssl_self_cert'],
-     timeout=30)
-print(x.text)
