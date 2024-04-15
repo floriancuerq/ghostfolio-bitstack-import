@@ -1,5 +1,6 @@
 import csv
 import json
+import os
 import sys
 import configparser
 from datetime import datetime
@@ -12,6 +13,9 @@ cfg.read('settings.conf')
 from_zone = tz.gettz(cfg['time']['src_timezone'])
 to_zone = tz.gettz(cfg['time']['dst_timezone'])
 
+if len(sys.argv) != 2:
+    print("Usage: python script.py <transactions_file>")
+    sys.exit(1)
 transactions_file = sys.argv[1]
 
 
@@ -45,4 +49,10 @@ with open(transactions_file, "r", encoding="utf-8") as csv_file:
             "unitPrice": float(convert_eur_usd(row[11], row[1]))
         }
         data['activities'].append(line)
-print(json.dumps(data, indent=2))
+
+# Write output to json file with the same name as input file
+output_file = f"{os.path.splitext(transactions_file)[0]}.json"
+with open(output_file, 'w') as json_file:
+    json.dump(data, json_file, indent=2)
+
+print(f"Data written to {output_file}")
